@@ -1,0 +1,12 @@
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.csprojAssemblyReference.cache
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.Form1.resources
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.Properties.Resources.resources
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.csproj.GenerateResource.cache
+E:\CSharp\ReadJson\ReadJson\bin\Debug\ReadJson.exe.config
+E:\CSharp\ReadJson\ReadJson\bin\Debug\ReadJson.exe
+E:\CSharp\ReadJson\ReadJson\bin\Debug\ReadJson.pdb
+E:\CSharp\ReadJson\ReadJson\bin\Debug\Newtonsoft.Json.dll
+E:\CSharp\ReadJson\ReadJson\bin\Debug\Newtonsoft.Json.xml
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.csproj.CopyComplete
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.exe
+E:\CSharp\ReadJson\ReadJson\obj\Debug\ReadJson.pdb

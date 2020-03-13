@@ -1,0 +1,29 @@
+{
+  "firstName": "John",
+  "lastName": "doe",
+  "age": 26,
+  "address": {
+    "streetAddress": "naist street",
+    "city": "Nara",
+    "postalCode": "630-0192"
+  },
+  "phoneNumbers": [
+    {
+      "xxx": "iPhone",
+      "zzz": "1"
+    },
+    {
+      "xxx": "home",
+      "zzz": "2"
+    },
+    {
+      "xxx": "lol",
+      "zzz": "3"
+    }
+  ]
+}
+
+
+
+
+
