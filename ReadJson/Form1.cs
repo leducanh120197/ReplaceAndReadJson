@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Xml.XPath;
+using System.Xml;
+using System.Diagnostics;
 
 namespace ReadJson
 {
@@ -19,11 +22,25 @@ namespace ReadJson
         {
             InitializeComponent();
         }
+
+        //----------Convert Json and Xem to csv
+        private void SelectFileType(object sender, EventArgs e)
+        {
+            if (radiobtnJson.Checked)
+            {
+                lblCheckedFileType.Text = "*.json";
+            }
+            if (radiobtnXml.Checked)
+            {
+                lblCheckedFileType.Text = "*.xml";
+            }
+        }
+        
         private void btnOneFile_Click_1(object sender, EventArgs e)
         {
             try
             {
-                var result = Class1.ReadJson(txtOneFile.Text, txtPathSyntax.Text);
+                var result = JsonAndXml.AnalysisFileContent(txtOneFile.Text, txtPathSyntax.Text, lblCheckedFileType.Text);
                 richInput.Text = result.Item1;
                 richOutput.Clear();
                 richOutput.Text = result.Item2;
@@ -39,12 +56,12 @@ namespace ReadJson
         {
             DateTime startTime = DateTime.Now;
             string urlAllFile = txtAllFile.Text;
+            string fileType = lblCheckedFileType.Text;
             string path = Application.StartupPath.ToString();
             lblPath.Text = path;
             try
             {
-                DirectoryInfo direct = new DirectoryInfo(urlAllFile);
-                FileInfo[] Files = direct.GetFiles("*.json");
+                FileInfo[] Files = JsonAndXml.GetListFile(urlAllFile, fileType);
 
                 pBar.Minimum = 0;
                 pBar.Maximum = Files.Length;
@@ -52,14 +69,15 @@ namespace ReadJson
 
                 foreach (FileInfo file in Files)
                 {
-                    string filePath = path + "\\" + file.Name;
-                    filePath = filePath.Replace(".json", ".csv");
+                    string output = file.FullName.Replace(file.Extension, ".csv");
                     var csv = new StringBuilder();
 
-                    Tuple<string, string> result = Class1.ReadJson(file.FullName, txtPathSyntax.Text);
+                    Tuple<string, string> result = JsonAndXml.AnalysisFileContent(file.FullName, txtPathSyntax.Text, lblCheckedFileType.Text);
+                    richInput.Text += result.Item1;
+                    richOutput.Text += result.Item2;
                     string newLine = string.Format("{0}", result.Item2);
                     csv.AppendLine(newLine);
-                    File.WriteAllText(filePath, csv.ToString());
+                    File.WriteAllText(output, csv.ToString());
                     pBar.PerformStep();
                 }
             }//      $.phoneNumbers[:3].number
@@ -75,15 +93,16 @@ namespace ReadJson
             lblTime.Text = duration.ToString();
         }
 
+        // ----------Replace----------
         private void btnReplace_Click(object sender, EventArgs e)
         {
             string urlReplaceInput = txtReplaceInput.Text;
             string fileType = comboBox1.Text;
             try
             {
-                Tuple<List<string>, List<string>> configList = Class1.ReadConfig(txtReplaceConfig.Text);
+                Tuple<List<string>, List<string>> configList = JsonAndXml.ReadConfig(txtReplaceConfig.Text);
 
-                FileInfo[] urlList = Class1.GetListFile(urlReplaceInput, fileType);
+                FileInfo[] urlList = JsonAndXml.GetListFile(urlReplaceInput, fileType);
                 if (urlList.Length == 0)
                 {
                     MessageBox.Show("Can not found", "Exception", MessageBoxButtons.OK);
@@ -92,14 +111,14 @@ namespace ReadJson
                 {
                     foreach (FileInfo fileInfo in urlList)
                     {
-                        string strContent = Class1.ReadFile(fileInfo.FullName);
+                        string strContent = JsonAndXml.ReadFile(fileInfo.FullName);
                         richTextBox1.Text += strContent + "\n\n";
                         for (int i = 0; i< configList.Item1.Count; i++)
                         {
                             strContent = strContent.Replace(configList.Item1[i], configList.Item2[i]);
                         }
-                        string output = Class1.ChangeFileName(fileInfo);
-                        Class1.WriteFile(output, strContent);
+                        string output = JsonAndXml.ChangeFileName(fileInfo);
+                        JsonAndXml.WriteFile(output, strContent);
                         richTextBox2.Text += strContent + "\n\n";
                     }
                 }
@@ -109,5 +128,116 @@ namespace ReadJson
                 MessageBox.Show(e1.ToString(), "Exception error", MessageBoxButtons.OK);
             }
         }
+
+        // ----------VoxCel----------
+        private void btnVoxCelConvert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string urlExcelFile = txtVoxCelBrowse.Text;
+                Microsoft.Office.Interop.Excel.Range xlRange = Utils.XlsxUtils.ReadFileExcel(urlExcelFile);
+                string jsonContent = Repositories.VoxCel.WriteJson(xlRange);
+                richVoxCel.Text = jsonContent;
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.ToString(), "Exception error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnVoxCelBrowse_Click(object sender, EventArgs e)
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                DialogResult result = ofd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(ofd.FileName))
+                {
+                    txtVoxCelBrowse.Text = ofd.FileName;
+                }
+            }
+        }
+
+        //--------------------------------------------------------------------
+        //--------------------------------------------------------------------
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var reader = new StreamReader(@"E:\CSharp\ReadJson\ReadJson\bin\Debug\test\path2.json"))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                var root = JToken.Load(jsonReader);
+                DisplayTreeView(root, Path.GetFileNameWithoutExtension(@"E:\CSharp\ReadJson\ReadJson\bin\Debug\test\path2.json"));
+            }
+
+        }
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var reader = new StreamReader(@"E:\CSharp\ReadJson\ReadJson\bin\Debug\test\path2.json"))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                var root = JToken.Load(jsonReader);
+                DisplayTreeView(root, Path.GetFileNameWithoutExtension(@"E:\CSharp\ReadJson\ReadJson\bin\Debug\test\path2.json"));
+            }
+        }
+
+
+        private void DisplayTreeView(JToken root, string rootName)
+        {
+            treeView1.BeginUpdate();
+            try
+            {
+                //treeView1.Nodes.Clear();
+                var tNode = treeView1.Nodes[treeView1.Nodes.Add(new TreeNode(rootName))];
+                tNode.Tag = root;
+
+                AddNode(root, tNode);
+
+                //treeView1.ExpandAll();
+            }
+            finally
+            {
+                treeView1.EndUpdate();
+            }
+        }
+
+        private void AddNode(JToken token, TreeNode inTreeNode)
+        {
+            if (token == null)
+                return;
+            if (token is JValue)
+            {
+                var childNode = inTreeNode.Nodes[inTreeNode.Nodes.Add(new TreeNode(token.ToString()))];
+                childNode.Tag = token;
+            }
+            else if (token is JObject)
+            {
+                var obj = (JObject)token;
+                foreach (var property in obj.Properties())
+                {
+                    var childNode = inTreeNode.Nodes[inTreeNode.Nodes.Add(new TreeNode(property.Name))];
+                    childNode.Tag = property;
+                    AddNode(property.Value, childNode);
+                }
+            }
+            else if (token is JArray)
+            {
+                var array = (JArray)token;
+                for (int i = 0; i < array.Count; i++)
+                {
+                    var childNode = inTreeNode.Nodes[inTreeNode.Nodes.Add(new TreeNode(array[i].First.ToString()))];
+                    childNode.Tag = array[i];
+                    AddNode(array[i], childNode);
+                }
+            }
+            else
+            {
+                Debug.WriteLine(string.Format("{0} not implemented", token.Type)); // JConstructor, JRaw
+            }
+        }
+
+
     }
 }
