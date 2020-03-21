@@ -1,0 +1,535 @@
+[
+  {
+    "name": "painted road symbol",
+    "id": 2,
+    "attributes": [
+      {
+        "id": 2000,
+        "name": "alternate",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "id": 3000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 4000,
+        "name": "orientation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "none",
+          "rotated",
+          "upside down"
+        ]
+      },
+      {
+        "id": 5000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 6000,
+        "name": "type",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "bike lane",
+          "complex turn",
+          "handicap",
+          "left only",
+          "other",
+          "railroad",
+          "right only",
+          "straight only",
+          "unclear"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "people",
+    "id": 8,
+    "attributes": [
+      {
+        "id": 8000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 9000,
+        "name": "type",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "crowd",
+          "group",
+          "pair"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "person",
+    "id": 11,
+    "attributes": [
+      {
+        "id": 11000,
+        "name": "age",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "adult",
+          "child",
+          "senior",
+          "teenager",
+          "unclear"
+        ]
+      },
+      {
+        "id": 12000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 13000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "person association",
+    "id": 15,
+    "attributes": [
+      {
+        "id": 15000,
+        "name": "mode of transit",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "bicycle",
+          "moped",
+          "motorcycle",
+          "other",
+          "unclear"
+        ]
+      },
+      {
+        "id": 16000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 17000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "road object",
+    "id": 19,
+    "attributes": [
+      {
+        "id": 19000,
+        "name": "alternate",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "id": 20000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 21000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 22000,
+        "name": "type",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "barrel",
+          "cone",
+          "delineator",
+          "unclear"
+        ]
+      },
+      {
+        "id": 23000,
+        "name": "upright",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "true",
+          "false"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "road sign",
+    "id": 25,
+    "attributes": [
+      {
+        "id": 25000,
+        "name": "alternate",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "id": 26000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 27000,
+        "name": "tilted",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "no",
+          "unclear",
+          "yes"
+        ]
+      },
+      {
+        "id": 28000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 29000,
+        "name": "type",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "do not enter",
+          "no left turn",
+          "no right turn",
+          "one way",
+          "other",
+          "pedestrian crossing",
+          "school",
+          "speed limit",
+          "stop",
+          "unclear",
+          "wrong way",
+          "yield"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "traffic light",
+    "id": 31,
+    "attributes": [
+      {
+        "id": 31000,
+        "name": "alternate",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "id": 32000,
+        "name": "bundle",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "no",
+          "unclear",
+          "yes"
+        ]
+      },
+      {
+        "id": 33000,
+        "name": "color",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "green",
+          "multiple",
+          "none",
+          "red",
+          "unclear",
+          "yellow"
+        ]
+      },
+      {
+        "id": 34000,
+        "name": "direction",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "complex arrows",
+          "none",
+          "straight",
+          "turn left",
+          "turn right",
+          "unclear"
+        ]
+      },
+      {
+        "id": 35000,
+        "name": "flash",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "no",
+          "unclear",
+          "yes"
+        ]
+      },
+      {
+        "id": 36000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 37000,
+        "name": "pose",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "back",
+          "front",
+          "side",
+          "unclear"
+        ]
+      },
+      {
+        "id": 38000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "vehicle",
+    "id": 40,
+    "attributes": [
+      {
+        "id": 40000,
+        "name": "emergency medical",
+        "type": "checkbox",
+        "mutable": false,
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "id": 41000,
+        "name": "fire fighting",
+        "type": "checkbox",
+        "mutable": false,
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "id": 42000,
+        "name": "none",
+        "type": "checkbox",
+        "mutable": false,
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "id": 43000,
+        "name": "police",
+        "type": "checkbox",
+        "mutable": false,
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "id": 44000,
+        "name": "taxi",
+        "type": "checkbox",
+        "mutable": false,
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "id": 45000,
+        "name": "occlusion",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "full",
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 46000,
+        "name": "pose",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "driver side",
+          "front",
+          "front driver side",
+          "front passenger side",
+          "passenger side",
+          "rear",
+          "rear driver side",
+          "rear passenger side",
+          "unclear"
+        ]
+      },
+      {
+        "id": 47000,
+        "name": "truncation",
+        "type": "radio",
+        "mutable": true,
+        "values": [
+          "heavy",
+          "light",
+          "none"
+        ]
+      },
+      {
+        "id": 48000,
+        "name": "type",
+        "type": "radio",
+        "mutable": false,
+        "values": [
+          "bicycle",
+          "bus commercial",
+          "bus school",
+          "bus transit",
+          "construction",
+          "convertible",
+          "coupe",
+          "crossover",
+          "hatchback",
+          "minivan",
+          "moped",
+          "motorcycle",
+          "other",
+          "pickup",
+          "rv",
+          "sedan",
+          "suv",
+          "trailer",
+          "truck other",
+          "truck semi",
+          "unclear",
+          "van"
+        ]
+      }
+    ]
+  }
+]

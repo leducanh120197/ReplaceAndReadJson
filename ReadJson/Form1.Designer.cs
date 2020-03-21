@@ -28,18 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnReplace = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtReplaceConfig = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtReplaceInput = new System.Windows.Forms.TextBox();
+            this.tabVoxCel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblCheckedFileType = new System.Windows.Forms.Label();
+            this.radiobtnXml = new System.Windows.Forms.RadioButton();
+            this.radiobtnJson = new System.Windows.Forms.RadioButton();
             this.lblPath = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,20 +51,260 @@
             this.btnOneFile = new System.Windows.Forms.Button();
             this.txtAllFile = new System.Windows.Forms.TextBox();
             this.txtOneFile = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnReplace = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtReplaceConfig = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtReplaceInput = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtVoxCelBrowse = new System.Windows.Forms.TextBox();
+            this.richVoxCel = new System.Windows.Forms.RichTextBox();
+            this.btnVoxCelBrowse = new System.Windows.Forms.Button();
+            this.btnVoxCelConvert = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.richTest = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tabVoxCel.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabVoxCel
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(638, 604);
-            this.tabControl1.TabIndex = 0;
+            this.tabVoxCel.Controls.Add(this.tabPage1);
+            this.tabVoxCel.Controls.Add(this.tabPage2);
+            this.tabVoxCel.Controls.Add(this.tabPage3);
+            this.tabVoxCel.Controls.Add(this.tabPage4);
+            this.tabVoxCel.Location = new System.Drawing.Point(13, 13);
+            this.tabVoxCel.Name = "tabVoxCel";
+            this.tabVoxCel.SelectedIndex = 0;
+            this.tabVoxCel.Size = new System.Drawing.Size(638, 604);
+            this.tabVoxCel.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.lblCheckedFileType);
+            this.tabPage1.Controls.Add(this.radiobtnXml);
+            this.tabPage1.Controls.Add(this.radiobtnJson);
+            this.tabPage1.Controls.Add(this.lblPath);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.pBar);
+            this.tabPage1.Controls.Add(this.lblEndTime);
+            this.tabPage1.Controls.Add(this.lblStartTime);
+            this.tabPage1.Controls.Add(this.lblTime);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.txtPathSyntax);
+            this.tabPage1.Controls.Add(this.richOutput);
+            this.tabPage1.Controls.Add(this.richInput);
+            this.tabPage1.Controls.Add(this.btnAllFile);
+            this.tabPage1.Controls.Add(this.btnOneFile);
+            this.tabPage1.Controls.Add(this.txtAllFile);
+            this.tabPage1.Controls.Add(this.txtOneFile);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(630, 578);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "JsonAndXmlToCsv";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblCheckedFileType
+            // 
+            this.lblCheckedFileType.AutoSize = true;
+            this.lblCheckedFileType.Location = new System.Drawing.Point(4, 52);
+            this.lblCheckedFileType.Name = "lblCheckedFileType";
+            this.lblCheckedFileType.Size = new System.Drawing.Size(46, 13);
+            this.lblCheckedFileType.TabIndex = 39;
+            this.lblCheckedFileType.Text = "File type";
+            // 
+            // radiobtnXml
+            // 
+            this.radiobtnXml.AutoSize = true;
+            this.radiobtnXml.Location = new System.Drawing.Point(9, 28);
+            this.radiobtnXml.Name = "radiobtnXml";
+            this.radiobtnXml.Size = new System.Drawing.Size(47, 17);
+            this.radiobtnXml.TabIndex = 38;
+            this.radiobtnXml.TabStop = true;
+            this.radiobtnXml.Text = "*.xml";
+            this.radiobtnXml.UseVisualStyleBackColor = true;
+            this.radiobtnXml.CheckedChanged += new System.EventHandler(this.SelectFileType);
+            // 
+            // radiobtnJson
+            // 
+            this.radiobtnJson.AutoSize = true;
+            this.radiobtnJson.Location = new System.Drawing.Point(9, 7);
+            this.radiobtnJson.Name = "radiobtnJson";
+            this.radiobtnJson.Size = new System.Drawing.Size(51, 17);
+            this.radiobtnJson.TabIndex = 37;
+            this.radiobtnJson.TabStop = true;
+            this.radiobtnJson.Text = "*.json";
+            this.radiobtnJson.UseVisualStyleBackColor = true;
+            this.radiobtnJson.CheckedChanged += new System.EventHandler(this.SelectFileType);
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(219, 140);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(29, 13);
+            this.lblPath.TabIndex = 35;
+            this.lblPath.Text = "Path";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 93);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "End Time";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Start time";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Time";
+            // 
+            // pBar
+            // 
+            this.pBar.Location = new System.Drawing.Point(6, 159);
+            this.pBar.Name = "pBar";
+            this.pBar.Size = new System.Drawing.Size(614, 23);
+            this.pBar.TabIndex = 31;
+            // 
+            // lblEndTime
+            // 
+            this.lblEndTime.AutoSize = true;
+            this.lblEndTime.Location = new System.Drawing.Point(72, 117);
+            this.lblEndTime.Name = "lblEndTime";
+            this.lblEndTime.Size = new System.Drawing.Size(0, 13);
+            this.lblEndTime.TabIndex = 30;
+            // 
+            // lblStartTime
+            // 
+            this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Location = new System.Drawing.Point(72, 93);
+            this.lblStartTime.Name = "lblStartTime";
+            this.lblStartTime.Size = new System.Drawing.Size(0, 13);
+            this.lblStartTime.TabIndex = 29;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(72, 143);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(0, 13);
+            this.lblTime.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(148, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Path Syntax";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(148, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Directory";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(148, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Directory";
+            // 
+            // txtPathSyntax
+            // 
+            this.txtPathSyntax.Location = new System.Drawing.Point(217, 65);
+            this.txtPathSyntax.Name = "txtPathSyntax";
+            this.txtPathSyntax.Size = new System.Drawing.Size(304, 20);
+            this.txtPathSyntax.TabIndex = 24;
+            // 
+            // richOutput
+            // 
+            this.richOutput.Location = new System.Drawing.Point(314, 188);
+            this.richOutput.Name = "richOutput";
+            this.richOutput.Size = new System.Drawing.Size(306, 384);
+            this.richOutput.TabIndex = 23;
+            this.richOutput.Text = "";
+            // 
+            // richInput
+            // 
+            this.richInput.Location = new System.Drawing.Point(6, 188);
+            this.richInput.Name = "richInput";
+            this.richInput.Size = new System.Drawing.Size(302, 384);
+            this.richInput.TabIndex = 22;
+            this.richInput.Text = "";
+            // 
+            // btnAllFile
+            // 
+            this.btnAllFile.Location = new System.Drawing.Point(527, 37);
+            this.btnAllFile.Name = "btnAllFile";
+            this.btnAllFile.Size = new System.Drawing.Size(75, 23);
+            this.btnAllFile.TabIndex = 21;
+            this.btnAllFile.Text = "All files";
+            this.btnAllFile.UseVisualStyleBackColor = true;
+            this.btnAllFile.Click += new System.EventHandler(this.btnAllFile_Click_1);
+            // 
+            // btnOneFile
+            // 
+            this.btnOneFile.Location = new System.Drawing.Point(527, 8);
+            this.btnOneFile.Name = "btnOneFile";
+            this.btnOneFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOneFile.TabIndex = 20;
+            this.btnOneFile.Text = "One file";
+            this.btnOneFile.UseVisualStyleBackColor = true;
+            this.btnOneFile.Click += new System.EventHandler(this.btnOneFile_Click_1);
+            // 
+            // txtAllFile
+            // 
+            this.txtAllFile.Location = new System.Drawing.Point(217, 39);
+            this.txtAllFile.Name = "txtAllFile";
+            this.txtAllFile.Size = new System.Drawing.Size(304, 20);
+            this.txtAllFile.TabIndex = 19;
+            // 
+            // txtOneFile
+            // 
+            this.txtOneFile.Location = new System.Drawing.Point(217, 10);
+            this.txtOneFile.Name = "txtOneFile";
+            this.txtOneFile.Size = new System.Drawing.Size(304, 20);
+            this.txtOneFile.TabIndex = 18;
             // 
             // tabPage2
             // 
@@ -176,205 +409,131 @@
             this.txtReplaceInput.Size = new System.Drawing.Size(311, 20);
             this.txtReplaceInput.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPage3
             // 
-            this.tabPage1.Controls.Add(this.lblPath);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.pBar);
-            this.tabPage1.Controls.Add(this.lblEndTime);
-            this.tabPage1.Controls.Add(this.lblStartTime);
-            this.tabPage1.Controls.Add(this.lblTime);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txtPathSyntax);
-            this.tabPage1.Controls.Add(this.richOutput);
-            this.tabPage1.Controls.Add(this.richInput);
-            this.tabPage1.Controls.Add(this.btnAllFile);
-            this.tabPage1.Controls.Add(this.btnOneFile);
-            this.tabPage1.Controls.Add(this.txtAllFile);
-            this.tabPage1.Controls.Add(this.txtOneFile);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(630, 578);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Json";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.txtVoxCelBrowse);
+            this.tabPage3.Controls.Add(this.richVoxCel);
+            this.tabPage3.Controls.Add(this.btnVoxCelBrowse);
+            this.tabPage3.Controls.Add(this.btnVoxCelConvert);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(630, 578);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "VoxCel";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // lblPath
+            // txtVoxCelBrowse
             // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(219, 140);
-            this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(29, 13);
-            this.lblPath.TabIndex = 35;
-            this.lblPath.Text = "Path";
+            this.txtVoxCelBrowse.Location = new System.Drawing.Point(92, 8);
+            this.txtVoxCelBrowse.Name = "txtVoxCelBrowse";
+            this.txtVoxCelBrowse.Size = new System.Drawing.Size(416, 20);
+            this.txtVoxCelBrowse.TabIndex = 3;
             // 
-            // label5
+            // richVoxCel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 93);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "End Time";
+            this.richVoxCel.Location = new System.Drawing.Point(6, 51);
+            this.richVoxCel.Name = "richVoxCel";
+            this.richVoxCel.Size = new System.Drawing.Size(618, 498);
+            this.richVoxCel.TabIndex = 2;
+            this.richVoxCel.Text = "";
             // 
-            // label6
+            // btnVoxCelBrowse
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 117);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Start time";
+            this.btnVoxCelBrowse.Location = new System.Drawing.Point(11, 6);
+            this.btnVoxCelBrowse.Name = "btnVoxCelBrowse";
+            this.btnVoxCelBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnVoxCelBrowse.TabIndex = 1;
+            this.btnVoxCelBrowse.Text = "Browse";
+            this.btnVoxCelBrowse.UseVisualStyleBackColor = true;
+            this.btnVoxCelBrowse.Click += new System.EventHandler(this.btnVoxCelBrowse_Click);
             // 
-            // label7
+            // btnVoxCelConvert
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 143);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Time";
+            this.btnVoxCelConvert.Location = new System.Drawing.Point(514, 6);
+            this.btnVoxCelConvert.Name = "btnVoxCelConvert";
+            this.btnVoxCelConvert.Size = new System.Drawing.Size(110, 23);
+            this.btnVoxCelConvert.TabIndex = 0;
+            this.btnVoxCelConvert.Text = "Convert";
+            this.btnVoxCelConvert.UseVisualStyleBackColor = true;
+            this.btnVoxCelConvert.Click += new System.EventHandler(this.btnVoxCelConvert_Click);
             // 
-            // pBar
+            // tabPage4
             // 
-            this.pBar.Location = new System.Drawing.Point(6, 159);
-            this.pBar.Name = "pBar";
-            this.pBar.Size = new System.Drawing.Size(614, 23);
-            this.pBar.TabIndex = 31;
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.richTest);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.treeView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(630, 578);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // lblEndTime
+            // button2
             // 
-            this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(72, 117);
-            this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(0, 13);
-            this.lblEndTime.TabIndex = 30;
+            this.button2.Location = new System.Drawing.Point(522, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lblStartTime
+            // richTest
             // 
-            this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(72, 93);
-            this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(0, 13);
-            this.lblStartTime.TabIndex = 29;
+            this.richTest.Location = new System.Drawing.Point(420, 127);
+            this.richTest.Name = "richTest";
+            this.richTest.Size = new System.Drawing.Size(204, 383);
+            this.richTest.TabIndex = 2;
+            this.richTest.Text = "";
             // 
-            // lblTime
+            // button1
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(72, 143);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(0, 13);
-            this.lblTime.TabIndex = 28;
+            this.button1.Location = new System.Drawing.Point(522, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
+            // treeView1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Path Syntax";
+            this.treeView1.Location = new System.Drawing.Point(21, 21);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(393, 489);
+            this.treeView1.TabIndex = 0;
             // 
-            // label3
+            // openFileDialog1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Directory";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Directory";
-            // 
-            // txtPathSyntax
-            // 
-            this.txtPathSyntax.Location = new System.Drawing.Point(75, 65);
-            this.txtPathSyntax.Name = "txtPathSyntax";
-            this.txtPathSyntax.Size = new System.Drawing.Size(304, 20);
-            this.txtPathSyntax.TabIndex = 24;
-            // 
-            // richOutput
-            // 
-            this.richOutput.Location = new System.Drawing.Point(314, 188);
-            this.richOutput.Name = "richOutput";
-            this.richOutput.Size = new System.Drawing.Size(306, 384);
-            this.richOutput.TabIndex = 23;
-            this.richOutput.Text = "";
-            // 
-            // richInput
-            // 
-            this.richInput.Location = new System.Drawing.Point(6, 188);
-            this.richInput.Name = "richInput";
-            this.richInput.Size = new System.Drawing.Size(302, 384);
-            this.richInput.TabIndex = 22;
-            this.richInput.Text = "";
-            // 
-            // btnAllFile
-            // 
-            this.btnAllFile.Location = new System.Drawing.Point(385, 37);
-            this.btnAllFile.Name = "btnAllFile";
-            this.btnAllFile.Size = new System.Drawing.Size(75, 23);
-            this.btnAllFile.TabIndex = 21;
-            this.btnAllFile.Text = "All files";
-            this.btnAllFile.UseVisualStyleBackColor = true;
-            this.btnAllFile.Click += new System.EventHandler(this.btnAllFile_Click_1);
-            // 
-            // btnOneFile
-            // 
-            this.btnOneFile.Location = new System.Drawing.Point(385, 8);
-            this.btnOneFile.Name = "btnOneFile";
-            this.btnOneFile.Size = new System.Drawing.Size(75, 23);
-            this.btnOneFile.TabIndex = 20;
-            this.btnOneFile.Text = "One file";
-            this.btnOneFile.UseVisualStyleBackColor = true;
-            this.btnOneFile.Click += new System.EventHandler(this.btnOneFile_Click_1);
-            // 
-            // txtAllFile
-            // 
-            this.txtAllFile.Location = new System.Drawing.Point(75, 39);
-            this.txtAllFile.Name = "txtAllFile";
-            this.txtAllFile.Size = new System.Drawing.Size(304, 20);
-            this.txtAllFile.TabIndex = 19;
-            // 
-            // txtOneFile
-            // 
-            this.txtOneFile.Location = new System.Drawing.Point(75, 10);
-            this.txtOneFile.Name = "txtOneFile";
-            this.txtOneFile.Size = new System.Drawing.Size(304, 20);
-            this.txtOneFile.TabIndex = 18;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 629);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabVoxCel);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabVoxCel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabVoxCel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -404,6 +563,20 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RadioButton radiobtnXml;
+        private System.Windows.Forms.RadioButton radiobtnJson;
+        private System.Windows.Forms.Label lblCheckedFileType;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnVoxCelBrowse;
+        private System.Windows.Forms.Button btnVoxCelConvert;
+        private System.Windows.Forms.RichTextBox richVoxCel;
+        private System.Windows.Forms.TextBox txtVoxCelBrowse;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTest;
+        private System.Windows.Forms.Button button2;
     }
 }
 

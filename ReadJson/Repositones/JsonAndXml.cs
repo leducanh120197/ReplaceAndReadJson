@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace ReadJson
 {
-    class Class1
+    class JsonAndXml
     {
         public static Tuple<string, string> AnalysisFileContent(string url, string pathSystax, string fileType)
         {
@@ -28,7 +29,15 @@ namespace ReadJson
             }
             if(fileType == "*.xml")
             {
-                strOut = "xxxxx";
+                XPathDocument docNav = new XPathDocument(url);
+                XPathNavigator nav = docNav.CreateNavigator();
+                //string strExpression = "/bookstore/book";
+
+                XPathNodeIterator NodeIter = nav.Select(pathSystax);
+                while (NodeIter.MoveNext())
+                {
+                    strOut += NodeIter.Current.Value + "\n";
+                };
             }
             return new Tuple<string, string> (strContent, strOut);
         }
@@ -80,6 +89,7 @@ namespace ReadJson
             sw.Close();
             fs.Close();
         }
+        
         public static string ChangeFileName(FileInfo file)
         {
             string dir = file.FullName.Replace(file.Extension, "_replace" + file.Extension);
